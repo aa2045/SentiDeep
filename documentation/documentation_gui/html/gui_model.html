@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gui_model module &#8212; Sentiment Analysis for Software Engineering-GUI Application 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gui_view module" href="gui_view.html" />
+    <link rel="prev" title="gui_main module" href="gui_main.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gui_view.html" title="gui_view module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gui_main.html" title="gui_main module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Sentiment Analysis for Software Engineering-GUI Application 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gui_model module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-gui_model">
+<span id="gui-model-module"></span><h1>gui_model module<a class="headerlink" href="#module-gui_model" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="gui_model.Model">
+<em class="property">class </em><code class="sig-prename descclassname">gui_model.</code><code class="sig-name descname">Model</code><a class="headerlink" href="#gui_model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class responsible for loading labels, cleaning input text, tokenizing and
+identifying the sentiment of input sentences.</p>
+<dl class="py method">
+<dt id="gui_model.Model.convert_string">
+<code class="sig-name descname">convert_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w2v_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.convert_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns the specified Word2Vec model name to the respective embedding model
+Args:</p>
+<blockquote>
+<div><p>w2v_name (str): Word2Vec model name</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The fully-loaded Word2Vec model is returned.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gui_model.Model.decontract">
+<code class="sig-name descname">decontract</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.decontract" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><p>text:</p>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gui_model.Model.load_df_labels">
+<code class="sig-name descname">load_df_labels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.load_df_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads class labels from numpy file.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>encoded class labels</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gui_model.Model.model_load">
+<code class="sig-name descname">model_load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_name</span></em>, <em class="sig-param"><span class="n">w2v_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.model_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the deep-learning classifier model specified
+Args:</p>
+<blockquote>
+<div><p>model_name (str): Name of the deep-learning classifier
+w2v_name (str): Name of the Word2Vec model.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Loaded Model and the dimensions of the embeddings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gui_model.Model.preprocess_text">
+<code class="sig-name descname">preprocess_text</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sentence</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.preprocess_text" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><p>sentence (str): Input sentence</p>
+</dd>
+<dt>Returns:</dt><dd><p>A clean str without URLs, selective punctuations,contractions, selective stopwords.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gui_model.Model.removal_punction">
+<code class="sig-name descname">removal_punction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.removal_punction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes punctuation
+Args:</p>
+<blockquote>
+<div><p>text:</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Text without punctuations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gui_model.Model.remove_pattern">
+<code class="sig-name descname">remove_pattern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_txt</span></em>, <em class="sig-param"><span class="n">pattern</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.remove_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><p>input_txt:
+pattern:</p>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gui_model.Model.remove_stopwords">
+<code class="sig-name descname">remove_stopwords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.remove_stopwords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes selected stopwords from the input text
+Args:</p>
+<blockquote>
+<div><p>text (str): Input sentence</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The input sentence without the specified stop-words</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gui_model.Model.sentiment_sentence">
+<code class="sig-name descname">sentiment_sentence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sentence</span></em>, <em class="sig-param"><span class="n">model_name</span></em>, <em class="sig-param"><span class="n">w2v_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.sentiment_sentence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the sentiment of a given input sentence.
+Args:</p>
+<blockquote>
+<div><p>sentence (str): Input sentence
+model_name (str): Name of the deep-learning classifier
+w2v_name (str): Name of Word2Vec model</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Sentiment of the input sentence as a str.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gui_model.Model.tokenizing_embedding">
+<code class="sig-name descname">tokenizing_embedding</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_dimensions</span></em>, <em class="sig-param"><span class="n">sentences</span></em>, <em class="sig-param"><span class="n">w2v_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.tokenizing_embedding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input sentence is tokenized and padded. Words present in the input sentence is
+matched with the vector weight in the Word2Vec model. If there exists a word that is not
+found in the word embedding model, then zero vector of size equal to embedding_dimensions is allotted.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>embedding_dimensions (int): Dimensions of the embedding model
+sentences (str): Sentence input by user.
+w2v_name (str): Name of the Word2Vec model</p>
+</dd>
+<dt>Returns:</dt><dd><p>Padded input sentence.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="gui_model.Model.tokenizing_embedding_lstm_cnn">
+<code class="sig-name descname">tokenizing_embedding_lstm_cnn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_dimensions</span></em>, <em class="sig-param"><span class="n">sentences</span></em>, <em class="sig-param"><span class="n">w2v_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui_model.Model.tokenizing_embedding_lstm_cnn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><p>embedding_dimensions:
+sentences:
+w2v_name:</p>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gui_main.html"
+                        title="previous chapter">gui_main module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gui_view.html"
+                        title="next chapter">gui_view module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/gui_model.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gui_view.html" title="gui_view module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gui_main.html" title="gui_main module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Sentiment Analysis for Software Engineering-GUI Application 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gui_model module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Aneesah.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>
