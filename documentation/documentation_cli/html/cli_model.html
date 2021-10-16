@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cli_model module &#8212; Training of classifiers for Sentiment Analysis 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cli_view module" href="cli_view.html" />
+    <link rel="prev" title="cli_main module" href="cli_main.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cli_view.html" title="cli_view module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cli_main.html" title="cli_main module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Training of classifiers for Sentiment Analysis 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">cli_model module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-cli_model">
+<span id="cli-model-module"></span><h1>cli_model module<a class="headerlink" href="#module-cli_model" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="cli_model.ModelTrain">
+<em class="property">class </em><code class="sig-prename descclassname">cli_model.</code><code class="sig-name descname">ModelTrain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class consists of methods to create the LSTM, BILSTM and CNN models
+consist of method to perform Stratified k fold cross validation and obtain evaluation results</p>
+<dl class="py method">
+<dt id="cli_model.ModelTrain.call_tokenize">
+<code class="sig-name descname">call_tokenize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_name</span></em>, <em class="sig-param"><span class="n">embedding_dimensions</span></em>, <em class="sig-param"><span class="n">embed_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain.call_tokenize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calling function, that calls the tokenizer functions of Tokenize class to tokenize, pad and
+create embedding matrices for the input sample.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>model_name (str): Name of the classifier model
+embedding_dimensions (int): Embedding dimension of the word embedding model
+embed_model (str): Name of the Word2Vec model</p>
+</dd>
+<dt>Returns:</dt><dd><p>Embedding matrix, padded samples, encoded labels, length of the vocabulary and the mean length of the samples</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cli_model.ModelTrain.create_model">
+<code class="sig-name descname">create_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_name</span></em>, <em class="sig-param"><span class="n">num_word</span></em>, <em class="sig-param"><span class="n">embedding_dim</span></em>, <em class="sig-param"><span class="n">embedding_matrix</span></em>, <em class="sig-param"><span class="n">max_length</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain.create_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calling function, to build the specified deep-learning classifier</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>model_name (str): Name of the classifier model
+num_word (int): length of the vocabulary in Word2Vec model
+embedding_dim (int): dimension of Word2Vec model
+embedding_matrix (int): embedding matrix for sample in dataset
+max_length (int): maximum number of inputs the model can have is the average length of the dataset samples</p>
+</dd>
+<dt>Returns:</dt><dd><p>The specified Deep-learning model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cli_model.ModelTrain.directory_name">
+<code class="sig-name descname">directory_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_name</span></em>, <em class="sig-param"><span class="n">embedding_dimensions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain.directory_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a directory to save the trained models from each fold</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>model_name (str): Name of the classifier model
+embedding_dimensions (int): Embedding dimension of the word embedding model</p>
+</dd>
+<dt>Returns:</dt><dd><p>Name of the directory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cli_model.ModelTrain.get_model_name">
+<code class="sig-name descname">get_model_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain.get_model_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a name to save the trained model</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>model_name (str): Name of the classifier model</p>
+</dd>
+<dt>Returns:</dt><dd><p>Name of the saved model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cli_model.ModelTrain.k_fold_train">
+<code class="sig-name descname">k_fold_train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_name</span></em>, <em class="sig-param"><span class="n">embed_model</span></em>, <em class="sig-param"><span class="n">epochs_num</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain.k_fold_train" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><p>model_name (str): Name of the deep-learning classifier model
+embed_model (str): Name of the Word2Vec Model
+epochs_num (int): Number of epochs</p>
+</dd>
+<dt>Returns:</dt><dd><p>List containing the values of evaluation metrics (Precision, Recall, F-measure) through all folds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cli_model.ModelTrain.model_bilstm">
+<code class="sig-name descname">model_bilstm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_word</span></em>, <em class="sig-param"><span class="n">embedding_dim</span></em>, <em class="sig-param"><span class="n">embedding_matrix</span></em>, <em class="sig-param"><span class="n">max_length</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain.model_bilstm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds stacked 2-layer BiLSTM model</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>num_word (int): length of the vocabulary in Word2Vec model
+embedding_dim (int): dimension of Word2Vec model
+embedding_matrix (int): embedding matrix for sample in dataset
+max_length (int): maximum number of inputs the model can have is the average length of the dataset samples</p>
+</dd>
+<dt>Returns:</dt><dd><p>Stacked 2-layer BiLSTM model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cli_model.ModelTrain.model_cnn">
+<code class="sig-name descname">model_cnn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_word</span></em>, <em class="sig-param"><span class="n">embedding_dim</span></em>, <em class="sig-param"><span class="n">embedding_matrix</span></em>, <em class="sig-param"><span class="n">max_length</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain.model_cnn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds stacked 2-layer CNN model</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>num_word (int): length of the vocabulary in Word2Vec model
+embedding_dim (int): dimension of Word2Vec model
+embedding_matrix (int): embedding matrix for sample in dataset
+max_length (int): maximum number of inputs the model can have is the average length of the dataset samples</p>
+</dd>
+<dt>Returns:</dt><dd><p>Stacked 2-layer CNN model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cli_model.ModelTrain.model_lstm">
+<code class="sig-name descname">model_lstm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_word</span></em>, <em class="sig-param"><span class="n">embedding_dim</span></em>, <em class="sig-param"><span class="n">embedding_matrix</span></em>, <em class="sig-param"><span class="n">max_length</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain.model_lstm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds stacked 2-layer LSTM model</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>num_word (int): length of the vocabulary in Word2Vec model
+embedding_dim (int): dimension of Word2Vec model
+embedding_matrix (int): embedding matrix for sample in dataset
+max_length (int): maximum number of inputs the model can have is the average length of the dataset samples</p>
+</dd>
+<dt>Returns:</dt><dd><p>Stacked 2-layer LSTM model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cli_model.ModelTrain.plot_confusion_matrix">
+<code class="sig-name descname">plot_confusion_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cn_matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain.plot_confusion_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the confusion matrix</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>cn_matrix (int): Confusion Matrix of the model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cli_model.ModelTrain.validation_plot">
+<code class="sig-name descname">validation_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">history</span></em>, <em class="sig-param"><span class="n">metric</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cli_model.ModelTrain.validation_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the specified loss/accuracy  plot of a model</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>history (obj): holds loss values and metric values during training
+metric (str): accuracy or loss values of the model</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cli_main.html"
+                        title="previous chapter">cli_main module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cli_view.html"
+                        title="next chapter">cli_view module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cli_model.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cli_view.html" title="cli_view module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cli_main.html" title="cli_main module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Training of classifiers for Sentiment Analysis 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">cli_model module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Aneesah.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

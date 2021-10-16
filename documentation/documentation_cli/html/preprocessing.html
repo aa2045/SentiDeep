@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>preprocessing module &#8212; Training of classifiers for Sentiment Analysis 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="tokenizing_labels module" href="tokenizing_labels.html" />
+    <link rel="prev" title="cli_view module" href="cli_view.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tokenizing_labels.html" title="tokenizing_labels module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cli_view.html" title="cli_view module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Training of classifiers for Sentiment Analysis 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">preprocessing module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-preprocessing">
+<span id="preprocessing-module"></span><h1>preprocessing module<a class="headerlink" href="#module-preprocessing" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="preprocessing.LoadData">
+<em class="property">class </em><code class="sig-prename descclassname">preprocessing.</code><code class="sig-name descname">LoadData</code><a class="headerlink" href="#preprocessing.LoadData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Reads the specified csv file into pandas dataframe and cleans the text contained in it</p>
+<dl class="py method">
+<dt id="preprocessing.LoadData.decontract">
+<code class="sig-name descname">decontract</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.LoadData.decontract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expands contraction words in text</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text (str): Input sentence</p>
+</dd>
+<dt>Returns:</dt><dd><p>Sentence with expanded contractions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="preprocessing.LoadData.preprocess_text">
+<code class="sig-name descname">preprocess_text</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sentence</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.LoadData.preprocess_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preprocessing text</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sentence (str): Input sentence</p>
+</dd>
+<dt>Returns:</dt><dd><p>Preprocessed sentence</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="preprocessing.LoadData.read_dataset">
+<code class="sig-name descname">read_dataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">csvfile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.LoadData.read_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the csv file into a pandas dataset</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>csvfile (str): Name of the csv file</p>
+</dd>
+<dt>Returns:</dt><dd><p>Dataset containing the samples and labels</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="preprocessing.LoadData.removal_punctuation">
+<code class="sig-name descname">removal_punctuation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.LoadData.removal_punctuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selective punctuations are removed</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text (str): Input sentence</p>
+</dd>
+<dt>Returns:</dt><dd><p>Text without the selective punctuations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="preprocessing.LoadData.remove_pattern">
+<code class="sig-name descname">remove_pattern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_txt</span></em>, <em class="sig-param"><span class="n">pattern</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.LoadData.remove_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes words with the specified pattern, example words starting with ‘&#64;’ in the case of usernames</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>input_txt (str): Input sentence
+pattern (str): pattern specified to remove</p>
+</dd>
+<dt>Returns:</dt><dd><p>Sentence without the specified pattern words</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="preprocessing.LoadData.remove_stopwords">
+<code class="sig-name descname">remove_stopwords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.LoadData.remove_stopwords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes selective stopwords from the sentence which is specified in a list</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text (str): Input Sentence</p>
+</dd>
+<dt>Returns:</dt><dd><p>Sentence without the defined stopwords</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="preprocessing.LoadData.visualisation_of_dataset">
+<code class="sig-name descname">visualisation_of_dataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.LoadData.visualisation_of_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the sentiment class distribution of a dataset</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>dataset (LoadData): Dataset containing the labels and samples</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cli_view.html"
+                        title="previous chapter">cli_view module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tokenizing_labels.html"
+                        title="next chapter">tokenizing_labels module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/preprocessing.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tokenizing_labels.html" title="tokenizing_labels module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cli_view.html" title="cli_view module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Training of classifiers for Sentiment Analysis 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">preprocessing module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Aneesah.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

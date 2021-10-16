@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tokenizing_labels module &#8212; Training of classifiers for Sentiment Analysis 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="preprocessing module" href="preprocessing.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="preprocessing.html" title="preprocessing module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Training of classifiers for Sentiment Analysis 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">tokenizing_labels module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-tokenizing_labels">
+<span id="tokenizing-labels-module"></span><h1>tokenizing_labels module<a class="headerlink" href="#module-tokenizing_labels" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="tokenizing_labels.Tokenize">
+<em class="property">class </em><code class="sig-prename descclassname">tokenizing_labels.</code><code class="sig-name descname">Tokenize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tokenizing_labels.Tokenize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class is responsible for tokenzing the samples in dataset and encoding the labels</p>
+<dl class="py method">
+<dt id="tokenizing_labels.Tokenize.calc_average">
+<code class="sig-name descname">calc_average</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tokenizing_labels.Tokenize.calc_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the average length of all sentences present</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Average length</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tokenizing_labels.Tokenize.label_encoding">
+<code class="sig-name descname">label_encoding</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tokenizing_labels.Tokenize.label_encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes the labels in the dataset</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Encoded labels</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tokenizing_labels.Tokenize.tokenizing_embedding_cnn_bilstm">
+<code class="sig-name descname">tokenizing_embedding_cnn_bilstm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_dimensions</span></em>, <em class="sig-param"><span class="n">embed_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tokenizing_labels.Tokenize.tokenizing_embedding_cnn_bilstm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input sentence is tokenized and padded. Words present in the input sentence is
+matched with the vector weight in the Word2Vec model. If there exists a word that is not
+found in the word embedding model, then zero vector of size equal to embedding_dimensions is allotted.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>embedding_dimensions (int): Dimensions of the embedding model
+sentences (str): Sentence input by user.
+w2v_name (str): Name of the Word2Vec model</p>
+</dd>
+<dt>Returns:</dt><dd><p>Padded input sentence.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tokenizing_labels.Tokenize.tokenizing_embedding_lstm">
+<code class="sig-name descname">tokenizing_embedding_lstm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">embedding_dimensions</span></em>, <em class="sig-param"><span class="n">w2v_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tokenizing_labels.Tokenize.tokenizing_embedding_lstm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="preprocessing.html"
+                        title="previous chapter">preprocessing module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tokenizing_labels.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="preprocessing.html" title="preprocessing module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Training of classifiers for Sentiment Analysis 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">tokenizing_labels module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Aneesah.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>
